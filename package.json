@@ -1,0 +1,56 @@
+{
+  "name": "@apilify/scaffold",
+  "version": "1.0.0",
+  "description": "command line tool for apilify",
+  "main": "handler.js",
+  "types": "handler.d.ts",
+  "bin": {
+    "@apilify/cli-scaffold": "dist/apilify-scaffold",
+    "apilify-scaffold": "dist/apilify-scaffold"
+  },
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/*.spec.ts",
+    "dev": "ts-node src/handler.ts",
+    "cli": "ts-node handler.ts",
+    "start": "ts-node handler.ts",
+    "copy": "copyfiles -u 1 \"src/templates/*.yml\" \"dist\" && copyfiles -u 1 \"src/templates/**/*.yml\" \"dist\"",
+    "run": "npm run build && apilify-scaffold init",
+    "build": "tsc"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "prepublish": "tsc",
+  "author": "Lane Thompson",
+  "license": "ISC",
+  "dependencies": {
+    "@apilify/jokes": "^1.0.1",
+    "@types/inquirer": "^6.5.0",
+    "@types/js-yaml": "^3.12.2",
+    "@types/request": "^2.48.4",
+    "@types/update-notifier": "^2.5.0",
+    "arg": "^4.1.2",
+    "aws-sdk": "^2.648.0",
+    "chalk": "^3.0.0",
+    "esm": "^3.2.25",
+    "execa": "^4.0.0",
+    "inquirer": "^7.0.3",
+    "js-yaml": "^3.13.1",
+    "listr": "^0.14.3",
+    "ora": "^4.0.3",
+    "request": "^2.88.2"
+  },
+  "_moduleAliases": {
+    "@root": "dist"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.9",
+    "@types/mocha": "^7.0.1",
+    "chai": "^4.2.0",
+    "copyfiles": "^2.2.0",
+    "mocha": "^7.1.0",
+    "module-alias": "^2.2.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.2"
+  }
+}
